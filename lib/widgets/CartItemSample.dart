@@ -6,9 +6,10 @@ class CartItemSample extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        for(int i = 1; i < 5 ; i++)
         Container(
           height: 110,
-          margin: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+          margin: EdgeInsets.only(left: 10, right: 10, top: 15),
           decoration: BoxDecoration(
               color: Colors.white, borderRadius: BorderRadius.circular(14)),
           child: Row(
@@ -24,7 +25,7 @@ class CartItemSample extends StatelessWidget {
                 height: 70,
                 margin: EdgeInsets.only(right: 15),
                 child: Image.asset(
-                  'images/1.png',
+                  'images/$i.png',
                 ),
               ),
               Padding(
@@ -53,7 +54,9 @@ class CartItemSample extends StatelessWidget {
                 ),
               ),
 Spacer(),
-              Padding(padding: EdgeInsets.symmetric(vertical: 18, horizontal: 10), child: Column(
+              Padding(padding: EdgeInsets.symmetric(vertical: 18, horizontal: 10),
+               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Icon(Icons.delete, color: Colors.red,),
@@ -61,7 +64,7 @@ Spacer(),
                     children: [
                      Container(
                       decoration: BoxDecoration(
-                        color: Color(0xFF4C53A5),
+                        color: Colors.grey.withOpacity(.5),
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
                           BoxShadow(
@@ -72,6 +75,24 @@ Spacer(),
                         ]
                       ),
                       child: Icon(CupertinoIcons.minus, color: Colors.white,),
+                     ) ,
+                     Container(
+                      margin: EdgeInsets.symmetric(horizontal: 10),
+                      child: Text('01', ),
+                     ),
+                     Container(
+                      decoration: BoxDecoration(
+                        color: Colors.grey.withOpacity(.5),
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: [
+                          BoxShadow(
+                          color: Colors.grey,
+                          spreadRadius: 1,
+                          blurRadius: 10
+                        ),
+                        ]
+                      ),
+                      child: Icon(CupertinoIcons.plus, color: Colors.white,),
                      ) 
                     ],
                   )
