@@ -1,17 +1,29 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:uione/widgets/CategoriesWidgets.dart';
 import 'package:uione/widgets/HomeAppBar.dart';
+import 'package:uione/widgets/ItemsWidgets.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: CurvedNavigationBar(
+        backgroundColor: Colors.transparent,
+        color: Color(0xFF4C53A5),
+        height: 70,
+        items: <Widget>[
+      Icon(Icons.add, size: 30, color: Colors.white,),
+      Icon(CupertinoIcons.cart_fill, size: 30, color: Colors.white,),
+      Icon(Icons.compare_arrows, size: 30, color: Colors.white,),
+    ],),
       body: ListView(
         children: [
           HomeAppBar(),
           Container(
-            height: 500,
-            padding: EdgeInsets.only(top: 15),
+            // height: 500,
+            padding: EdgeInsets.only(top: 15, ),
             decoration: BoxDecoration(
                 color: Color(0xFFEDECF2),
                 borderRadius: BorderRadius.only(
@@ -57,6 +69,19 @@ class HomePage extends StatelessWidget {
                 ),
                 // Categories
                 CategoriesWidget(),
+                // items
+                Container(
+                  alignment: Alignment.centerLeft,
+                  margin: EdgeInsets.symmetric(horizontal: 10,vertical: 20),
+                  child: Text('Best Selling', style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF4C53A5)
+                  ),),
+                ),
+
+                ItemsWidgets()
+
               ],
             ),
           )
